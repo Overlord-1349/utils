@@ -49,7 +49,9 @@ class Project(ABC):
             pass
 
     def _mkdir(self, resource: Resource):
-        (self.target_dir / resource.filename).mkdir(parents=True, exist_ok=True)
+        (self.target_dir / resource.filename).mkdir(
+            parents=True, exist_ok=True
+        )
 
     @abstractmethod
     def _update_file_content(self, resource: Resource) -> None:
