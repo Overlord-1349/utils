@@ -13,7 +13,10 @@ authors = [
 ]
 
 [project.scripts]
-cli-name = "jecr"
+cli-name = "jecr:__main__"
+
+[project.optional-dependencies]
+test = ["pytest"]
 
 [build-system]
 requires = ["setuptools"]
