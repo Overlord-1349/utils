@@ -21,6 +21,7 @@ def create_python_project(target_dir: str | Path, name: str, version: str):
         Resource("init_pkg", "new", "src/pkg/__init__.py"),
         Resource("test_folder", "mkdir", "tests"),
         Resource("init_test", "new", "__init__.py"),
+        Resource("test_folder", "mkdir", "docs"),
     ]
     project = Project(Path(target_dir) / name, resources)
     project.create()

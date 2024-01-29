@@ -1,2 +1,0 @@
-class NonEmptyFolderError(Exception):
-    pass

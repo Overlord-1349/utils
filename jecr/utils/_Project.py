@@ -2,7 +2,6 @@ from pathlib import Path
 from shutil import copy
 from typing import List
 from jecr.utils._Resource import Resource
-from jecr.utils._NonEmptyFolderError import NonEmptyFolderError
 
 
 class Project:
@@ -15,11 +14,11 @@ class Project:
         self.target_dir = Path(target_dir)
         self.resources = resources
         if self.target_dir.exists():
-            raise NonEmptyFolderError(
+            raise FileExistsError(
                 f"{self.target_dir} already exists"
             )
 
-        self.target_dir.mkdir(parents=True, exist_ok=True)
+        self.target_dir.mkdir(parents=True)
 
     @property
     def _resources_dir(self) -> Path:

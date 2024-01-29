@@ -16,7 +16,7 @@ class TestProject:
     def test_create(self, python_project_instance: Project):
         assert python_project_instance.target_dir.exists()
 
-    def test_check_update_file_content(self, python_project_instance: Project):
+    def test_update_file_content(self, python_project_instance: Project):
         readme_file: Path = python_project_instance.target_dir / "README.md"
         with readme_file.open("r") as fh:
             content = fh.read()
@@ -30,3 +30,9 @@ class TestProject:
         assert (
             python_project_instance.target_dir / "src/pkg/__init__.py"
         ).exists()
+
+    def test_mkdir(self, python_project_instance: Project):
+        assert (
+            python_project_instance.target_dir / "docs"
+        ).exists()
+        
