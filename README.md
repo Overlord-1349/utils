@@ -22,4 +22,4 @@ python -m build
 
 ## Create a new python project
 
-python3 -m jecr create --name <PROJECT_NAME> --path <TARGET_DIR>
+python3 -m jecr create --name <PROJECT_NAME> --version <VERSION> --path <TARGET_DIR>

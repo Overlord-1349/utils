@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from jecr.utils.create_project import PythonProject
+from jecr.utils.create_project import create_python_project
 
 
 if __name__ == "__main__":
@@ -8,6 +8,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("action", choices=["create", "test"])
     parser.add_argument("--name", type=str, required=False)
+    parser.add_argument("--version", type=str, required=False)
     parser.add_argument("--path", type=str, required=False)
 
     args = parser.parse_args()
@@ -16,8 +17,8 @@ if __name__ == "__main__":
         case "create":
             if not args.path or not args.name:
                 raise ValueError(
-                    "missing following params --name {} --path {}"
+                    "missing following params --name {} --path {} --version"
                 )
-            PythonProject(args.name, args.path).create()
+            create_python_project(args.path, args.name, args.version)
         case Any:
             print(f"Action {args.action} is not supported")
